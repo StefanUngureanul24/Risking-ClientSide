@@ -1,0 +1,124 @@
+= Specification Fonctionnelle 
+:toc:
+
+== Description
+
+Ce document explique la spécification fonctionnelle de notre projet Risking coté client. Elle decrit les actions qu'il est possible de faire pour un joueur.
+
+== Menu du jeu 
+
+Le jeu aura une interface principale avec plusieurs boutons, Lorsqu’un joueur arrive sur le jeu et qu’il souhaite jouer, il a deux possibilités. Soit il possède déjà un compte et il peut alors se connecter simplement, soit il n'en possède pas et il doit en créer un.
+
+* *Connexion*
+
+ce bouton permettra aux joueurs le désirant de se connecter. En cas de connexion ce bouton sera remplacé par historique
+
+* *Création de compte*
+
+Lorsqu’un utilisateur est sur la page d’accueil du site mais qu’il ne possède pas de compte lui permettant de s’y connecter, il peut cliquer sur le bouton « Créer un compte » qui l’enverra vers un formulaire HTML permettant à l’utilisateur de saisir les informations nécessaires à la création de son compte au sein de la base de données.
+Lorsque le nouvel utilisateur aura créé son compte au moyen de cette page, il pourra alors retourner sur la page d’accueil afin de se connecter au site.
+
+
+* *Création de Game* 
+
+Ce bouton permettra de créer une partie. Le joueur sera redirigé vers un salon d'attente avec plusieurs interfaces:
+
+** _Carte_
+
+Une interface pour lui permettre de changer de carte 
+	
+** _Paramètre_
+
+Une interface pour changer les paramètres de jeu: nombre de joueurs maximum, durée d'un tour...
+	
+** _Salon_
+
+Une interface pour attendre les joueurs restants. 
+
+* *Salon de la game*
+
+Dans le salon, plusieurs éléments seront presents tel que:
+	
+** l'id du salon à partager à ses amis pour rejoindre la partie
+** l'id des joueurs de la partie. Les joueurs pourront être expulsé.
+** le nombre de joueurs présents
+** un bouton "quitter" pour quitter la partie
+** un bouton "demarrer" pour demarrer la partie. Seul le créateur pourra démarrer la partie.
+** Message de mise à jour
+
+Un compte à rebours pourra être ajouté
+
+* *Rejoindre une game*
+
+Ce bouton permettra au joueur de rejoindre une partie grace à un id possédé par le chef du salon
+
+** _En cas d'erreur_
+
+Un message d'erreur sera affiché 
+	
+** _valide_
+
+Le joueur sera redirigé vers le salon
+
+
+* *Rejoindre une game en spectateur*
+
+Ce bouton servira à rejoindre une partie dont le joueur possède l'id sans y participer
+
+** _En cas d'erreur_
+
+Un message d'erreur sera affiché 
+	
+** _valide_
+
+Le joueur sera redirigé vers le salon
+	
+* *Langues*
+
+Ce bouton permettra de changer la langue du jeu. Les langues implémentées seront :
+
+** _Francais_
+** _Anglais_
+
+== Déroulement de la partie 
+
+**Lors de la partie, le joueur aura une interface contenant :**
+
+* Un Bouton passer son tour
+* un Timer, de durée définie avant le lancement du jeu, en haut de l'écran (plus facile), ou alors autour du bouton passer son tour
+* Les joueurs de la partie sur le côté (Surligner sur le joueur qui est entrain de passer son tour)
+* Un signal (message) ou animation (1 à 2s), du genre “Your turn”, quand c’est le tour du joueur    en question (1 à 2s). 
+* Bouton Attaquer
+* Bouton Renforcer
+* La carte des territoires/continents/pays, avec le nombre d’armée affiché sur chaque continent
+* Bouton quitter la game, (dans ce cas, le joueur en question va revenir au menu principale  et son tour va continuer de passer automatiquement)
+
+**Lorsque ce sera son tour :**
+
+* Le joueur verra combien de troupes il a gagné
+* Le joueur pourra renforcer les troupes des pays conquis en cliquant sur celles-ci
+* Le joueur pourra attaquer les autres pays en cliquant sur ses troupes puis sur celles de l'adversaire 
+* Le joueur pourra réorganiser ses troupes dans les pays lui appartenant 
+
+**Lorsque son tour est fini :**
+
+* Le joueur pourra voir les actions des autres joueurs
+
+== Fin de la partie
+
+* Image Annonce de fin du Jeu (récapitulatif de la game: durée totale, classement des  joueurs...)
+* Un joueur pourra cliquer sur le pseudo d'un joueur lors de l'affichage du classement afin de pouvoir voir son historique
+* Image Annonce Win (style griser l’écran et mettre un stickers Win)
+* Image Annonce Lose (style griser l’écran et mettre un stickers Lose)
+
+== Mode Spectateur 
+
+* Affichage de la carte
+* La liste des joueurs sur le côté (Souligner le nom du joueur quand c’est son tour) 
+* Affichage du message “mode spectateur / watching game”
+
+== Effets sonores 
+Utilisation de TraxCreator v3 pour la création de pistes musicales pour chaque screen,(splash screen inclus), menus, welcome, cartes, défaite, victoire...
+
+Des musiques d'ambiance seront potentiellement rajoutée.
+

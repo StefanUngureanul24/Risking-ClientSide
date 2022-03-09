@@ -1,0 +1,671 @@
+/* Background */
+.bodyIndex
+{
+    background-image: url(../components/templates/background.png);
+    overflow: auto;
+}
+
+/* Container */
+.containerIndex 
+{
+    margin-top: 15%;
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    padding-bottom: 30%;
+    
+    background-image: url(../components/templates/surface.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.logoRiskingIndex
+{    
+    width: 50%;
+    transform: translateY(-50%);
+    padding-bottom: 5%;
+}
+
+/* Boutons pour activer les formulaires */
+.flagContainer
+{
+    display: flex;
+    
+    position: absolute;
+    top: 35%;
+    left: 60%;
+
+    transform: translate(0%, 50%);
+    /*transform: translate(180%, 780%);*/
+    width: 35%; /* 50% */
+}
+
+.loginFlag
+{
+    width: 35%;
+
+    -webkit-filter: brightness(100%);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    cursor: pointer;    
+}
+
+.loginFlag:hover 
+{
+    -webkit-filter: brightness(70%);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.signupFlag
+{
+    width: 70%;
+    margin-top: -20%;
+
+    -webkit-filter: brightness(100%);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    cursor: pointer;
+}
+
+.signupFlag:hover 
+{
+    -webkit-filter: brightness(70%);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.backSignup 
+{
+    position: absolute;
+    top: 1%;
+    left: 0.5%;
+
+    width: 3.5%;
+
+    opacity: 0.3;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out 0s;
+    resize: both;
+}
+
+.backSignup:hover 
+{
+    opacity: 1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+/* --- */
+
+/* Formulaire New Game */
+.formNewGame 
+{
+    width: 35%;
+
+    /*magic*/
+    transform: translate(15%, -35%);
+
+    color:rgb(248, 250, 248);
+    text-shadow: 2px 2px 4px #000000;
+    text-align: left;
+    font-family: 'Luminary', cursive;
+    font-weight: bold;
+
+    margin-left: 1%;
+    margin-bottom: -30em;
+}
+
+.formNewGame > h1
+{
+    font-size: 3em;
+    text-align: left;
+    
+    margin-top: -25%;
+    margin-left: 15%;
+}
+
+.formNewGame > input 
+{   
+    padding: 2% !important;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid black;
+}
+
+.formNewGame > input:focus
+{
+    outline: none;
+}
+
+.formNewGame > p 
+{
+    font-size: 1.5em;
+    margin-bottom: 0em;
+}
+
+/*JOIN GAME FLAG*/
+.formImg 
+{
+    width: 50%;
+    height: 40%;
+    margin-left: -1em;    
+
+    /*transform: translateY(10%);*/
+    transform: translate(70%, 40%);
+
+    -webkit-filter: brightness(100%);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    cursor: pointer;
+}
+
+.formImg:hover 
+{
+    -webkit-filter: brightness(70%);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+/* Formulaire Login */
+.formLogin 
+{
+    display: block;
+    height: -60%;
+    width: 40%;
+    color:rgb(248, 250, 248);
+    text-shadow: 2px 2px 4px #000000;
+    text-align: left;
+    font-family: 'Luminary', cursive;
+    font-weight: bold;
+    transform: translate(115%, 50%);
+    
+    margin-top: 15%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+}
+
+.formLogin > p
+{
+    margin-bottom: 0.1em;
+
+    font-size: 1.5em;
+}
+
+.formLogin > input 
+{
+    padding: 0.5em 5em 0.5em 0.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid black;
+}
+
+.formLogin > input:focus 
+{
+    outline: none;
+}
+
+.loginImg 
+{
+    width: 40%;
+    margin-top: 5%;
+    margin-left: 30%;
+
+    -webkit-filter: brightness(100%);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    cursor: pointer;
+    
+}
+
+.loginImg:hover 
+{
+    -webkit-filter: brightness(70%);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+}
+/* --- */
+
+/* Formulaire Signup */
+.formSignup 
+{
+    
+    margin-left: 5%;
+    margin-bottom: -40%;
+    font-family: 'Luminary', cursive;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 0%;
+    transform: translateY(-35%);
+
+    background-image: url('../components/templates/surfacenocrack.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.signupImg 
+{
+    width: 15%;
+    margin-top: 5%;
+    margin-left: 30%;
+
+    -webkit-filter: brightness(100%);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+
+    transform: translate(50%, -50%);
+    cursor: pointer;
+}
+
+.signupImg:hover 
+{
+    -webkit-filter: brightness(70%);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+}
+
+.signupBackground 
+{
+    width: 95%;
+}
+
+.formSignup > p
+{
+    font-size: 1.5em;
+    margin-left: 20%;
+    text-align: center;
+    padding-top: 1%;
+    color: white;
+}
+
+.formSignup > input 
+{
+    padding: 0.5em 5em 0.5em 0.5em;
+    margin-right: 30%;
+    margin-left: 20%;
+    border: 1px solid black;
+    width: 50% !important;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.formSignup > input:focus 
+{
+    outline: true;
+}
+/* --- */
+
+
+@media screen and (min-width: 1500px) 
+{
+    .flagContainer 
+    {
+        /*transform: translateX(-5%);*/
+        left: 55%; 
+    } 
+}
+
+@media screen and (max-width: 1000px)
+{
+    .containerIndex
+    {
+        background-image: url(../components/templates/surfacenocrack.png);
+    
+        padding-bottom: 0em;
+        margin-bottom: 0em;
+    }
+
+    .formNewGame
+    {
+        margin-top: 5em;
+        margin-left: auto;
+        margin-right: auto;
+
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding-top: -10%; 
+        transform: translate(0%, -150%);
+
+        top: 0;
+    }
+
+    .formNewGame > h1
+    {
+        /*font-size: 2.5em;*/
+        margin-left: 20%;
+        margin-top: -18%; 
+    }
+
+    .firstP 
+    {
+        margin-bottom: -1.5em !important;
+    }
+
+    .flagContainer
+    {
+    display: flex;
+    transform: translate(180%, 500%);
+    width: 35%; /* 50% */
+    }
+
+    .formLogin
+    {
+        background-image: url(../components/templates/surfacenocrack.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        width: 100%;
+        position: relative;
+        
+        transform: translate(-1%, 5%) !important;   
+
+        padding-right: 25%; 
+        padding-bottom: 20%; 
+        padding-left: 20%; 
+        padding-top: 10%; 
+        
+        margin-top: 30em;
+        margin-left: 0.5em;
+    }
+
+    .formLogin > p
+    {
+        margin-bottom: -5px;
+    }
+
+    .formLogin > input
+    {
+        padding: 5px;
+    }
+
+    .formLogin > p
+    {
+        margin-bottom: -5px;
+        margin-top: 1em;
+    }
+
+    .formLogin > input
+    {
+        padding: 5px;
+    }
+
+    .formSignup
+    {
+        padding-bottom: 1%;
+        height: 500px;
+        width: auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    
+    .flagContainer 
+    {
+        position: absolute;
+        width: 100%;  
+
+        transform: translate(0%, 0%); /* 35%, 1000% */
+    
+        z-index: 1;
+    }
+
+    .signupFlag 
+    {
+        width: 15%;
+        position: absolute;
+        margin-top: 45% !important; 
+        left: -20%;
+
+        /*transform: translate(-130%, 430%);*/
+    }    
+
+    .formImg 
+    {
+        /*margin-left: 0em;*/
+        transform: translate(0%, 50%);
+        margin-left: 25%;
+    }
+
+    .loginImg 
+    {
+        width: 35%;
+        margin-left: 35%;
+    }
+}
+
+@media screen and (min-width: 850px) and (max-width: 990px)
+{
+    .formNewGame > h1 
+    {
+        font-size: 2em;
+    }
+
+    .signupFlag
+    {
+        margin-top: 18em !important;
+        margin-left: 2%;
+        
+        width: 15%;
+        
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1000px)
+{    
+    .signupFlag
+    {
+        margin-top: 50%;
+    }
+    
+    .formLogin
+    {
+        transform: translate(-1%, 15%) !important;
+    }
+}
+
+@media screen and (max-width: 850px)
+{
+    .formNewGame > h1 
+    {
+        font-size: 2em;
+    }
+
+    .signupFlag 
+    {
+        margin-top: 18em !important;
+        margin-left: 1em !important;
+    }
+}
+
+@media screen and (max-width: 767px)
+{
+    .signupFlag
+    {
+        margin-top: 12em !important;
+        margin-left: 1.7em !important;
+
+        width: 12%;
+    }
+
+    .formLogin > p 
+    {
+        font-size: 1.2em;
+    }
+
+    .formLogin > input 
+    {
+        padding: 0em;
+    }
+}
+
+@media screen and (max-width: 560px)
+{
+    .signupFlag
+    {
+        width: 17%;
+
+        margin-left: 0.2em !important;
+    }
+
+    .formNewGame > h1
+    {
+        margin-left: 0%; /* 15% */
+        font-size: 2em;
+    }
+
+    .signupFlag 
+    {
+        margin-top: 9em !important;
+        margin-left: 0.3em !important;
+    }
+
+    .formLogin > p 
+    {
+        font-size: 0.9em;
+    }
+}
+
+/*
+@media screen and (max-width: 980px)
+{
+    .formNewGame > input 
+    {
+        width: 50%;
+
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 885px)
+{
+    .formSignup > input 
+    {
+        padding: 0.3em;
+    }
+
+    .formSignup > p
+    {
+        font-size: 1.3em;
+    }
+    
+    .flagContainer 
+    {
+        transform: translate(35%, 1200%);
+    }
+}
+
+@media screen and (max-width: 690px)
+{
+    .formNewGame 
+    {    
+        margin-bottom: -22em;
+    }
+    
+    .formNewGame > h1 
+    {
+        font-size: 1.2em;
+        
+        margin-top: 2em;
+    }
+
+    .formNewGame > p 
+    {
+        font-size: 1em;
+    }
+
+    .firstP 
+    {
+        margin-bottom: 0em !important;
+    }    
+
+    .formLogin 
+    {
+        width: 100%;
+        padding-left: 15%;
+        margin-left: 0%;
+        margin-top: 80%;    
+        padding-bottom: 5%;
+    }
+    
+    .formLogin > p 
+    {
+        margin-top: 0.3em;
+        font-size: 1em;
+    }
+
+    .formSignup 
+    {
+        width: 110%;
+        margin-top: -30%;
+        padding: 0%;
+    }
+
+    .formSignup > p
+    {
+        margin-top: 0.3em;
+        font-size: 1em;
+    }
+
+    .formSignup > input 
+    {
+        
+        padding: 0%;
+    }
+
+    .flagContainer 
+    {
+        width: 40%;
+        
+        transform: translate(50%, 1175%);
+    }
+
+
+    .formNewGame > input 
+    {
+        width: 50%;
+        padding: 2px;
+        transform: translateY(5%);
+    }
+
+    .signupImg 
+    {
+        width: 15%;
+        transform: translate(300%, -500%);
+    }
+}
+
+
+.containerIndex input{
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 
+}
+*/

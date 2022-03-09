@@ -1,0 +1,129 @@
+
+.parametre{
+    margin-top: -7% ;
+}
+
+
+
+.parametre input{
+    width: 50%;
+    margin-left: 20% ;
+    margin-right: 20%;
+}
+
+
+.parametre_1 label{
+    color:white;
+    margin-bottom: -4%;
+    font-size: 20px;}
+
+.parametre_1 input{
+    color:black;
+}
+
+.parametre_2{
+    margin-top: -4%;
+}
+
+.parametre_2 label{
+    color:white;
+    margin-bottom: -4%;
+    font-size: 20px;
+}
+
+.parametre_2 input{
+    margin-bottom: 5%;
+}
+
+
+
+
+
+.mapsLobby{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.mapsLobby > img {
+    width: 15%;
+    margin: 0% 1% 0% 1%;
+
+    border: 1px solid #000;
+
+    transition: transform .2s ease;
+
+    cursor: pointer;
+}
+
+.mapsLobby > img:hover 
+{
+    transform: scale(1.2);
+}
+
+.mapsLobby > img:active 
+{
+    transform: scale(1.2);
+}
+
+
+.principale{
+
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+}
+.parametre_2 label{
+    margin-top: 5%;
+}
+
+.creer{
+    width: 30%;
+    margin-left: auto ;
+    margin-right: auto ;
+
+}
+.creer button{
+    border : 2px solid white;
+    font-size: 16px;
+
+}
+
+#Button_valider{
+    background-color: yellowgreen;
+
+
+}
+
+#Button_retour{
+    background-color: rgb(219, 213, 213);
+    color : black;
+    font-size: 16px;
+
+
+}
+
+#Map1:checked{
+    width:100%;
+}
+
+@media screen and (max-width: 767px) 
+{
+    .mapsLobby
+    {
+        flex-direction: column;
+        margin-left: 12.2em;
+        width: 150%;       
+    }
+
+    .mapsLobby > img 
+    {
+        margin-top: 0.8em;        
+    }
+
+    .mapsLobby > img:first-child 
+    {
+        margin-top: -1em;        
+    }
+}

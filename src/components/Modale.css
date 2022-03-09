@@ -1,0 +1,14 @@
+.Btn_regle
+{
+    position : fixed;
+    top: 0;
+    right: 0;
+    width: 20%;
+    color: black;
+}
+
+.regle
+{
+    background-color: yellowgreen;
+    border: 1px solid back;
+}

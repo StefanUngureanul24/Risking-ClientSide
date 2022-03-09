@@ -1,0 +1,28 @@
+
+
+  .timer-wrapper {
+    display: flex;
+    width: 100px;
+    height: 100px;    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .timer {
+    font-family: "Montserrat";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .text {
+    color: #aaa;
+  }
+  
+  .value {
+    font-size: 40px;
+  }
+  

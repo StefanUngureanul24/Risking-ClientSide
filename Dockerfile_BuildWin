@@ -1,0 +1,11 @@
+FROM electronuserland/builder:wine
+
+COPY . /project
+
+RUN yarn
+RUN yarn react-build && yarn electron-build -w
+
+# docker build -f Dockerfile_BuildWin -t risking-client-build-desktop-win .
+# docker run -it --rm 095012a5dbae
+# docker cp 57b9f6bbea90:/project/dist/'risking-client Setup 0.1.0.exe' .
+# docker image prune

@@ -1,0 +1,353 @@
+/* Variables*/
+
+
+
+:root {
+    --font-family-bg: 'Alfa Slab One', sans-serif;
+    --font-color: cornsilk;
+    --background-color-players: lightslategray;
+  }
+
+
+.current_turn{
+  color:white;
+  margin-right:3%;
+  margin-bottom: 10%;
+}
+
+
+.phase{
+  width: 50%;
+  margin-top: 4%;
+  margin-right: auto;
+  margin-left: auto;
+  color:white;
+  font-size:25px;
+
+}
+    
+
+
+.map{
+  background-image: url("./battle/background-test3.png");  
+    background-size: cover;
+    background-repeat: no-repeat;
+    position:fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+}
+
+/*CSS de la partie joueur courant*/
+.map .container{
+    float: left; 
+    width: 25%;
+      }
+
+
+/* SVG OPTIMIZATION*/
+.map__image{
+    float: left;
+    width: 70%;
+    margin-left: 7%;
+    margin-top: -4%;
+}
+
+.map__image path { 
+
+  stroke: black;
+  stroke-width: 1px;
+  stroke-dasharray: 2,2;
+  stroke-linejoin: round;
+
+}
+ 
+
+/* AREAS 1, depend on the number of players*/
+.map__image .player_1{
+    fill: yellow;
+    transition: fill 0.3s;
+  }
+
+.map__image .player_1:hover{
+    fill: #CCCC00;
+}
+
+.map__image .player_2{
+    fill: red;
+    transition: fill 0.3s;
+}
+.map__image .player_2:hover{
+    fill: #8B0000;
+    transition: fill 0.3s;
+}
+
+
+.map__image .player_3{
+    fill: green;
+    transition: fill 0.3s;
+}
+
+.map__image .player_3:hover{
+    fill: #006400;
+    transition: fill 0.3s;
+}
+
+.map__image .player_4{
+  fill: #0000FF;
+  transition: fill 0.3s;
+}
+
+.map__image .player_4:hover{
+  fill: #00008B;
+  transition: fill 0.3s;
+}
+
+.map__image .player_5{
+  fill: #808080;
+  transition: fill 0.3s;
+}
+
+.map__image .player_5:hover{
+  fill: #A9A9A9;
+  transition: fill 0.3s;
+}
+
+.map__image .player_6{
+  fill: #FFB6C1;
+  transition: fill 0.3s;
+}
+
+.map__image .player_6:hover{
+  fill: #F08080;
+  transition: fill 0.3s;
+}
+
+
+/*Infos joueurs*/ 
+.info {
+float: right;
+}
+.info .info-one{
+    color: var(--font-color);
+    background-color: lightslategray;
+    border: 2px solid #222;
+        padding: 3px 5px;
+        text-shadow: 2px 2px #222;
+        border-radius: 5px;   
+        font-family: var(--font-family-bg);
+        
+}
+
+.map__image path{
+  stroke-width:10px;
+}
+
+/*
+.map .info .info-two{
+    color: var(--font-color);
+    background-color: var(--background-color-players);
+    border: 2px solid #222;
+        padding: 3px 5px;
+        text-shadow: 2px 2px #222;
+        margin: 5px 0;
+        border-radius: 5px;   
+        font-family: var(--font-family-bg); 
+ 
+}
+
+.map .info .info-three{
+    color: var(--font-color);
+    background-color: var(--background-color-players);
+
+    border: 2px solid #222;
+        padding: 3px 5px;
+        text-shadow: 2px 2px #222;
+        margin: 5px 0;
+        border-radius: 5px;   
+        font-family: var(--font-family-bg); 
+ 
+}
+
+.map .info .info-four{
+    color: var(--font-color);
+    background-color: var(--background-color-players);
+
+    border: 2px solid #222;
+        padding: 3px 5px;
+        text-shadow: 2px 2px #222;
+        margin: 5px 0;
+        border-radius: 5px;   
+        font-family: var(--font-family-bg); 
+ 
+}
+.map .info .info-five{
+    color: var(--font-color);
+    background-color: var(--background-color-players);
+
+    border: 2px solid #222;
+        padding: 3px 5px;
+        text-shadow: 2px 2px #222;
+        margin: 5px 0;
+        border-radius: 5px; 
+        font-family:var(--font-family-bg); 
+   
+}
+
+.map .info .info-six{
+    color: var(--font-color);
+    background-color: var(--background-color-players);
+    border: 2px solid #222;
+        padding: 3px 5px;
+        text-shadow: 2px 2px #222;
+        margin: 5px 0;
+        border-radius: 5px;    
+        font-family: var(--font-family-bg); 
+
+}*/
+
+.info button{
+    width: 100%;
+    margin-top: 10%;
+    padding: 2%;
+    font-family: var(--font-family-bg); 
+}
+
+
+/* CSS partie header*/
+.header{
+margin-top: 3%;
+width: 50%;
+margin-left: auto;
+margin-right: auto;
+}
+
+.phase_1 {
+
+    float:left;
+    width:33%;
+  }
+
+.phase_2 {
+
+    float:left;
+    width:33%;
+  }
+
+.phase_3 {
+
+    float:left;
+    width:33%;
+  }
+
+.playerPhasebtn_j{
+    width:11% ;
+    margin-top: -3.5%;
+    margin-right:-3%;
+    
+  }
+
+  .playerPhasebtn_j_soldats{
+    width:11% ;
+    margin-top: -11%;
+    margin-right:-3%;
+  }
+  
+
+
+
+
+  
+  .playerPhasebtn{
+    width:15% ;
+    margin-top: -4%;
+  }
+
+
+
+
+
+  .playerPhasebtn:hover{
+
+    width:15.2% ;
+    margin-top: -4%;
+    transition:  0.3s;
+
+  }
+
+.playerPhasebtn_other{    
+transform: scaleX(-1);
+    width:11% ;
+    float:left;
+    margin-left:-1%;
+
+
+  }
+
+  .playerPhasebtn_other_soldats{    
+    transform: scaleX(-1);
+        width:11% ;
+        float:left;
+        margin-left:-11.10%;
+        
+      }
+
+
+  /* PopUp CSS*/
+  .popup-content {
+    margin: auto;
+    background: rgb(255, 255, 255,0);
+    width: 30%;
+    border:0px;
+    color: white;
+    font-size: 40px;
+  }
+
+
+  .popup-arrow {
+    color: rgb(255, 255, 255,0);
+  }
+  [role='tooltip'].popup-content {
+    width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+  }
+  
+  .popup-overlay {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  [data-popup='tooltip'].popup-overlay {
+    background: transparent;
+  }
+
+  /* PopUp animation*/
+  @keyframes anvil {
+    0% {
+      transform: scale(1) translateY(0px);
+      opacity: 0;
+      box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+    }
+    1% {
+      transform: scale(0.96) translateY(10px);
+      opacity: 0;
+      box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+    }
+    100% {
+      transform: scale(1) translateY(0px);
+      opacity: 1;
+      box-shadow: 0 0 500px rgba(241, 241, 241, 0);
+    }
+  }
+
+
+
+  
+  .popup-content {
+    -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+  }
+
+ .num_0{
+   width: 5%;
+ }

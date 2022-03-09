@@ -1,0 +1,106 @@
+
+
+
+.rejoindre{
+
+    width:40%;
+    float: left;
+    }
+    
+    
+    .rejoindre h1{
+    
+        color:white;
+        }
+    
+        
+    
+    .create{
+        width: 40%;
+        float:right;
+        padding-left: 10%;
+    
+    }
+    
+    .fleche{
+        width: 20%;
+        float:right;
+        padding-left: 10%;
+    
+    
+    }
+    
+    .principale{
+        width:auto;
+        padding-top:20%;
+        padding-bottom:20%;
+    
+    
+    }
+    
+    
+    .create > img {
+        width: 120%;
+        margin: 0% 1% 0% 1%;
+    
+        border: 0px solid #000;
+    
+        transition: transform .2s ease;
+    
+        cursor: pointer;
+    }
+    
+    .create > img:hover 
+    {
+        transform: scale(1.2);
+    }
+
+    .createImg
+    {
+        transition: transform .2s ease;
+    }
+
+    .createImg:hover 
+    {
+        transform: scale(1.2);
+    }
+
+@media screen and (max-width: 960px)
+{
+    .fleche 
+    {
+        display: none;    
+    }   
+
+    .rejoindre
+    {
+        float: none;
+    
+        width: 50%;
+        margin-left: 25%;
+    }
+    
+    .create 
+    {
+        margin-top: 10%;
+        margin-left: 15%;
+        padding-left: 0%;
+        float: none;
+    }
+
+    .createImg 
+    {
+        width: 180%;
+    }
+}
+
+    hr { 
+        display: block;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: auto;
+        margin-right: auto;
+        border-width: 4px;
+        border: 3px solid white;
+        opacity: 1;
+    }

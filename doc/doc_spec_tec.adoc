@@ -1,0 +1,226 @@
+= Specification Technique 
+:toc:
+
+== Description
+
+Ce document explique la spécification technique de notre projet Risking coté client. Elle decrit toutes les spécificités techniques qui vont servir à la réalisation du projet.
+
+== Interface Homme-Machine 
+
+En ce qui concerne l'interface utilisateur, elle suivra la spécifications fonctionnelle et sera codée en HTML5 (Canvas), CSS3, Javascript. Pour faciliter la conception de notre application web, nous avons décider d'utiliser le framework React car  celui-ci est bien documenté, très populaire et  est aussi plus facile à prendre en main que Angular.
+
+TIP: https://fr.reactjs.org/[site français de React]
+
+== Inscription/ Connexion et affichage des informations
+
+Pour pouvoir échanger les logins et les mots de passe nécessaire à l'inscription et à la connexion des joueurs de manière sécurisé, nous utiliserons JWT.
+
+* Le joueur se connecte depuis le client qui va envoyer une requête HTTP au serveur (via l’API du serveur) avec, par exemple, un couple email/mot de passe
+
+* Si les informations de connexion sont correctes, le serveur génère un jeton JWT
+
+* Le serveur envoie le JWT généré au client, qui le conservera de son côté pour pouvoir le communiquer au serveur à chaque nouvelle requête
+
+Tout ce qui concerne l'interaction avec la base de données, affichage des informations d’un joueur par exemple, se fera en PHP via des requêtes AJAX.
+
+== Stockage de la map
+
+La map sera stockée dans le client dans un fichier txt sous un format à définir qui contient toutes les informations de la carte (par exemple les liens entre les différentes zones, etc...). Des informations supplémentaires sont disponibles dans une documentation détaillée du serveur.
+
+== Représentation interne de la map
+
+Les informations concernant le jeu sera stocké dans un objet de classe "game_data" ci_dessous:
+
+[source, javascript]
+----
+class Game_data {
+	constructor(){
+		this.tab_Territory = [] //tableau d'object "Territory"
+		this.tab_Player = [] //tableau d'object "Player"
+		this.tab_Area = [] //tableau de région
+		this.room_Id = -1 //id de la salle
+		this.current_player = "" //nom du joueur actuelle
+		this.map_Id = 0 //id de la map	
+		this.time_round = 0 //temps d'un tour
+		this.current_turn = -1 //id du tour du joueur
+		this.current_name = "" //nom du joueur courant
+		this.winner = "" //nom du gagnant
+        	this.time_round = 0 //durée d'un round 
+        	this.time_remaining = 0 //durée restant 
+        	this.winner = ""//gagnant
+        	this.file = new File_data("",0,0,0) //FIle data //informatio map
+        	this.dice = [] //tableau de dés
+        	this.phase = 0	//phase de jeu
+	}
+}
+----
+
+Pour pouvoir démarrer une partie, il est nécéssaire de creer un lobby et d'y ajouter des joueurs, une classe Lobby pour stocker les paramètres renvoyés par le serveur ainsi que le nombre de joueur dans la salle sera donc créee. De plus elle est nécéssaire pour conserver les données après une partie en cas de revanche.
+
+----
+class Lobby {
+	constructor(){
+		this.tab_Player_name = new Array() // nom des joueur dans la salle
+		this.room_Id //id de la salle
+		this.master = "" //id du propriétaire
+		this.current_JWT = "" //JWT du joueur 
+		this.nb_player = 0 //nombre de joueur dans la partie
+	}
+}
+----
+
+Chaques territoires seront stockés dans un tableau d'Objet "Territory". Pour modéliser la carte, celle-ci est représentée sous forme de graphes. Chaque territoire possède un tableau contenant l'indice des territoires atteingnables.
+
+[source, javascript]
+----
+class Territory {
+	constructor(id_territory, nb_soldier, id_user, tableau){
+		this.id_territory = id_territory //id du territoire
+		this.nb_soldier = nb_soldier //nombre de soldat 
+		this.id_user = id_user //id du propriétaire
+		this.tableau = tableau //tableau d'adjacence 
+		this.done = false //booléen pour le parcours 
+	}
+}
+----
+
+Les régions seront également stocké de la même façon:
+
+[source, javascript]
+----
+class Area {
+    constructor(name, value){
+        this.name = name //nom de la région
+        this.value = value //nombre de soldat bonus
+        this.territory = [] //id des territoires dans la région
+    }
+}
+----
+
+Chaque Joueur et ces états seront stockée dans l'objet "game_info" dans le tableau de joueur qui sont également des objets d'une classe "Player" pour pouvoir suivre sa progression tout au long de la partie
+
+[source, javascript]
+----
+class Player {
+	constructor(id_player, name){
+		this.id_player = id_player //id du joueur
+		this.name = name // nom du joueur
+		this.alive = true //etat du joueur
+	}
+}
+----
+
+Pour communiquer avec le serveur, il y aura deux fonctions principales qui permettra de créer des messages à envoyer et l'autre de traiter les messages entrants. Ces deux fonctions feront office de parser et de générateur de messages. Ces fonctions utiliseront eux même d'autre fonction de manipulation de données de nos strucutures.
+
+Les informations concernant le partage des territoires se trouvent dans un fichier txt sur le serveur. Celui-ci est nommé par son identifiant. Le client devra faire un requête pour le récupérer. Toutes les informations seront contenu dans une structure File_data
+
+[source, javascript]
+----
+class File_data {
+    construtor(card_name, nb_territory, nb_terr_group, tab){
+        this.card_name = card_name //nom de la carte
+        this.nb_territory = nb_territory //nombre de territoire
+        this.nb_terr_group = nb_terr_group //nombre de région
+        this.tab = tab; //tableau d'adjacence 
+    }
+}
+----
+
+
+== Modélisationtion de la map
+
+Carte en SVG -> Utilisation de React en JavaScript pour:
+
+* découper la carte en continent/territoire.
+* détecter le nom d’un continent quand on le survole grâce à son id.
+
+TIP: https://www.youtube.com/watch?v=UZs8l50gxjU&t=692s[Carte interactive]
+
+== Connexion avec le serveur c++
+
+La connexion au serveur c++ se fera grâce à des Websockets javascript en TCP. La liste des messages concernant les actions du jeu sont spécifiées dans le git serveur “messages.adoc”. La gestion d’incident comme la reconnexion à la session en cas de déconnexion courte sera gérée par le protocole Websocket, les erreurs telles que des pertes de paquets seront gérée par une retransmission TCP. Les erreurs explicites (envoyées par le serveur) sont à gérer par le client.
+
+IMPORTANT: *Si le serveur ne répond plus pendant pendant un certain temps, le joueur sera redirigé vers le menu principal du jeu.
+
+== Tri des messages
+
+Les messages seront interprétés par un parser qui fera la correspondance entre un type de message en particulier et l’action à effectuer que ce soit sur l’interface utilisateur que dans les différentes structures de données. 
+
+== Fonctions
+
+**fonctionnement interne :**
+
+** lire un fichier contenant le graphe
+** créer la matrice d’adjacence
+** créer le tableau de données
+** changer le joueur possédant le terrain 
+** changer le nombre de soldats
+** mettre à jour la zone de chaque joueur dans la partie
+** changer la couleur d’une zone conquise
+** informer le joueur d’un message d’erreur envoyé par le serveur
+** placer les troupes au hasard si le tour d’un joueur passe sans que ce dernier ne place ses troupes.
+** identifier la case d’origine et destination lors d’un transfert de troupe.
+** jouer le son attendu de chaque action (Fortifier / Déployer / Attaquer)
+** Découper la carte SVG en zones / territoires
+** Attribuer à chaque territoire ses propriétés: nom, continent, propriétaire, couleur, nombre de soldats et voisins.
+
+
+**liaison client/serveur (message à générer):**
+
+** création de compte et connexion (JWT + AJAX)
+** créer un salon
+** paramètre du salon
+** rejoindre le salon grâce à son id
+** quitter le salon
+** expulser un joueur du salon
+** démarrer la partie
+** terminer son tour
+** placer ses troupes
+** attaquer
+** Fortifier
+** transférer des troupes (indiquer case source et destination)
+** passer / terminer une phase
+** voir historique d'un joueur
+
+**liaison client/serveur (message à traiter):**
+
+** réception id de la partie créée
+** lancement de la partie
+** tour du joueur
+** changement de place des troupes d’un joueur
+** attaque entre 2 joueurs + résultat de l’attaque
+** message d’acceptation ou de refus de transfert de troupes
+** message de nouvelle phase
+** gestion des erreurs
+** message d'expulsion du salon (motif)
+** message de Lose / Win
+** afficher historique d'un joueur
+
+== L'interface de jeu en détail
+**Fichiers & Fonctions**
+
+** Le fichier Map.js renferme  La classe Map qui hérite des Components React. Elle a pour but d’afficher principalement la Map en SVG, et les différentes div concernant les infos du joueurs courant ainsi que les autres joueurs de la partie. 
+
+** Un timer fixé à X secondes est aussi ajouté via le fichier Timer.js. Ce dernier contient la fonction Timer() qui permet de faire un countdown à chaque début de tour d’un joueur. Plus le temps s’écoule plus la couleur du timer tend vers le rouge pour provoquer l’urgence chez le joueur en cours. 
+
+** Ainsi, le nombre de joueur d’une partie est dynamique. Il faut alors adapter le nombre de divs des joueurs et afficher leurs infos correctement. Pour se faire, le fichier Joueurs,js est crée. Ce dernier sera inclus dans le fichier principale (Map,js) et nous permettra ainsi de mettre à jour les infos des joueurs à chaque tour. 
+
+** D’autre part, une fonction map est mise en place dans le fichier principale. Cette fonction va alors adapter l’affichage en fonction du nombre des joueurs de la partie. 
+
+[source, javascript]
+----
+ nom.map(function(clickable, i) {
+          return <Joueurs 
+            name={ nom[i]}
+            nb_soldats={soldats[i]}
+            classement={data[i]}
+          />
+----
+
+** La partie « affichage infos des autres joueurs » étant finie, reste à dynamiser le panel des infos du joueur courant. C’est le rôle du fichier Infos_panel,js. Après la mise en relation avec le module logique, ce panel va se mettre à jour, en fonction des données reçues par le module réseaux. Ces données concerneront alors le nom du joueur courant, les territoires conquis, le nombre de soldats/troupes, la phase en cours ( Placement, Fortification, Attaque), ainsi qu’une div de 2/3 lignes expliquant la phase en cours pour les joueurs novices ! 
+
+** Chaque Bouton ainsi que les territoires de la map  seront rattachés à une fonction de traitement via la fonction react onClick. Ainsi, on détectera les terrioires sources et destination sur la map et les différents actions du joueur (Passage tour, Quitter la partie ...)
+[source, javascript]
+onClick={() => this.handleClick()}
+
+
